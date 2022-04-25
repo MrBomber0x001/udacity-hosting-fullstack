@@ -49,5 +49,6 @@ jobs:
 workflows:
   build_and_deploy:
     jobs:
+      - aws-cli-example
       - frontend
       # - server
