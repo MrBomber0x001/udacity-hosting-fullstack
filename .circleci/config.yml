@@ -49,6 +49,7 @@ jobs:
 workflows:
   build_and_deploy:
     jobs:
-      - aws-cli-example
+      - aws-cli-example:
+        contex: aws
       - frontend
       # - server
