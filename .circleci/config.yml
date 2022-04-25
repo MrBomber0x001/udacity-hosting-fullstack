@@ -2,6 +2,7 @@ version: 2.1
 orbs:
   node: circleci/node@4.2.0
   aws-cli: circleci/aws-cli@2.0.0
+  eb: circleci/aws-elastic-beanstalk@1.0.0
 jobs:
   # aws-cli-example:
   #   executor: aws-cli/default
@@ -53,13 +54,14 @@ jobs:
           override-installed: false 
           aws-access-key-id: AWS_ACCESS_KEY 
           aws-secret-access-key: AWS_SECRET_ACCESS_KEY 
+      - eb/setup
       - run:
           name: Deploy Server
           # command: |-
             # aws elasticbeanstalk create-application-version --application-name $EB_APP --version-label <<pipeline.git.revision>> --source-bundle S3Bucket="$EB_BUCKET",S3Key="Archive.zip"
             # aws elasticbeanstalk update-environment --application-name $EB_APP --environment-name $EB_ENV --version-label <<pipeline.git.revision>>
           command: |
-             aws elasticbeanstalk update-environment --application-name udagram-api --environment-name Udagramapi-env --version-label <<pipeline.git.revision>>
+            eb deploy Udagramapi-env
           
 workflows:
   build_and_deploy:
