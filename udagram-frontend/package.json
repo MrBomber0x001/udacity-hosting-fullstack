@@ -10,7 +10,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "deploy": "npm run build && aws s3 cp --recursive --acl public-read ./www s3://udagram-meska/"
+    "run-deploy": "chmod +x ./bin/deploy.sh && ./bin/deploy.sh",
+    "deploy": "npm run build && aws s3 cp --recursive --acl public-read --cache-control=\"max-age=0, no-cache, no-store, must-revalidate\" www/ s3://udagram-meska/"
   },
   "private": true,
   "dependencies": {
