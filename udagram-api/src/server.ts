@@ -18,7 +18,7 @@ import { V0_FEED_MODELS, V0_USER_MODELS } from "./controllers/v0/model.index";
   console.log("Database Connected");
 
   const app = express();
-  const port = process.env.PORT || 8080;
+  const PORT = Number(process.env.PORT || 8080);
 
   app.use(bodyParser.json());
 
@@ -32,8 +32,8 @@ import { V0_FEED_MODELS, V0_USER_MODELS } from "./controllers/v0/model.index";
   });
 
   // Start the Server
-  app.listen(port, () => {
-    console.log(`server running ${process.env.URL}`);
+  app.listen(PORT, () => {
+    console.log(`server running ${process.env.URL}:${PORT}`);
     console.log(`press CTRL+C to stop server`);
   });
 })();
