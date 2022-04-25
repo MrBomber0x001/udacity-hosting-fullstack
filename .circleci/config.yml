@@ -28,8 +28,8 @@ jobs:
           configure-profile-region: true 
           disable-aws-pager: true 
           override-installed: false 
-          aws-access-key-id: $AWS_ACCESS_KEY 
-          aws-secret-access-key: $AWS_SECRET_ACCESS_KEY 
+          aws-access-key-id: AWS_ACCESS_KEY 
+          aws-secret-access-key: AWS_SECRET_ACCESS_KEY 
       - run:
           name: Deploy Frontend
           command: aws s3 cp --recursive --acl public-read --cache-control="max-age=0, no-cache, no-store, must-revalidate" www/ s3://udagram-meska/
