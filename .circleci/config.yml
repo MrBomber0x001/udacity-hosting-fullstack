@@ -15,6 +15,9 @@ jobs:
           name: Build Frontend
           command: npm run build
       - aws-cli/install
+      - aws-cli/setup:
+          profile-name: default
+
       - run:
           name: Deploy Frontend
           command: aws s3 cp --recursive --acl public-read --cache-control="max-age=0, no-cache, no-store, must-revalidate" www/ s3://udagram-meska/
