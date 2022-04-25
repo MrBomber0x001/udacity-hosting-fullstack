@@ -43,13 +43,6 @@ jobs:
       - node/install-packages:
           app-dir: ~/app/udagram-api
       - run:
-          name: Installing deployment dependencies
-          command: |
-            sudo apt-get -y -qq update
-            sudo apt-get install python-pip python-dev build-essential
-            sudo pip install --upgrade setuptools
-             sudo pip install awsebcli --upgrade
-      - run:
           name: Build and Archive Server
           command: |-
             npm run build
@@ -61,14 +54,14 @@ jobs:
           override-installed: false 
           aws-access-key-id: AWS_ACCESS_KEY 
           aws-secret-access-key: AWS_SECRET_ACCESS_KEY 
-      - eb/setup
+      #- eb/setup
       - run:
           name: Deploy Server
           # command: |-
             # aws elasticbeanstalk create-application-version --application-name $EB_APP --version-label <<pipeline.git.revision>> --source-bundle S3Bucket="$EB_BUCKET",S3Key="Archive.zip"
             # aws elasticbeanstalk update-environment --application-name $EB_APP --environment-name $EB_ENV --version-label <<pipeline.git.revision>>
           command: |
-            eb deploy Udagramapi-env
+             aws elasticbeanstalk update-environment --application-name udagram-api --environment-name Udagramapi-env --version-label <<pipeline.git.revision>>
           
 workflows:
   build_and_deploy:
