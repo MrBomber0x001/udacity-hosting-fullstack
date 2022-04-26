@@ -2,8 +2,9 @@
 "scripts": {
     "api:build": "cd udagram-api && npm run build && cd ..",
     "api:install": "cd udagram-api && npm install && cd ..",
-    "fe:build": "cd udagram-frontend && npm run build && cd ..",
-    "fe:install": "cd udagram-frontend && npm ci && cd ..",
-    "postinstall": "npm run api:install && npm run fe:install"
+    "frontend:build": "cd udagram-frontend && npm run build && cd ..",
+    "frontend:install": "cd udagram-frontend && npm install && cd ..",
+    "fontend:test": "cd udagram-front && npm run test",
+    "api:test": "cd udagram-api && npm run test"
   }
 }
