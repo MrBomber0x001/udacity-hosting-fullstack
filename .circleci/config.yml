@@ -12,28 +12,28 @@ jobs:
   #     - aws-cli/setup:
   #         profile-name: default
   #     - run: echo "Run your code here"
-  # frontend:
-  #   working_directory: ~/app/udagram-frontend
-  #   executor: node/default
-  #   steps:
-  #     - checkout:
-  #         path: ~/app
-  #     - node/install-packages:
-  #         app-dir: ~/app/udagram-frontend
-  #     - run:
-  #         name: Build Frontend
-  #         command: npm run build
-  #     - aws-cli/setup:
-  #         profile-name: default 
-  #         configure-default-region: true 
-  #         configure-profile-region: true 
-  #         disable-aws-pager: true 
-  #         override-installed: false 
-  #         aws-access-key-id: AWS_ACCESS_KEY 
-  #         aws-secret-access-key: AWS_SECRET_ACCESS_KEY 
-  #     - run:
-  #         name: Deploy Frontend
-  #         command: aws s3 cp --recursive --acl public-read --cache-control="max-age=0, no-cache, no-store, must-revalidate" www/ s3://udagram-meska/
+  frontend:
+    working_directory: ~/app/udagram-frontend
+    executor: node/default
+    steps:
+      - checkout:
+          path: ~/app
+      - node/install-packages:
+          app-dir: ~/app/udagram-frontend
+      - run:
+          name: Build Frontend
+          command: npm run build
+      - aws-cli/setup:
+          profile-name: default 
+          configure-default-region: true 
+          configure-profile-region: true 
+          disable-aws-pager: true 
+          override-installed: false 
+          aws-access-key-id: AWS_ACCESS_KEY 
+          aws-secret-access-key: AWS_SECRET_ACCESS_KEY 
+      - run:
+          name: Deploy Frontend
+          command: aws s3 cp --recursive --acl public-read --cache-control="max-age=0, no-cache, no-store, must-revalidate" www/ s3://udagram-meska/
   server:
     working_directory: ~/app/udagram-api
     executor: node/default
