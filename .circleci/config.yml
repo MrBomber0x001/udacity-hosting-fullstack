@@ -3,6 +3,8 @@ orbs:
   node: circleci/node@4.2.0
   aws-cli: circleci/aws-cli@2.0.0
   eb: circleci/aws-elastic-beanstalk@1.0.0
+  aws-eb-cli: speakable-org/aws-eb-cli@1.0.1
+
 jobs:
   # aws-cli-example:
   #   executor: aws-cli/default
@@ -55,6 +57,7 @@ jobs:
           aws-access-key-id: AWS_ACCESS_KEY 
           aws-secret-access-key: AWS_SECRET_ACCESS_KEY 
       #- eb/setup
+      - aws-eb-cli/setup
       - run:
           name: Deploy Server
           # command: |-
