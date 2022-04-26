@@ -1,5 +1,5 @@
 {
-"scripts": {
+  "scripts": {
     "api:build": "cd udagram-api && npm run build && cd ..",
     "api:install": "cd udagram-api && npm install && cd ..",
     "frontend:build": "cd udagram-frontend && npm run build && cd ..",
@@ -7,5 +7,22 @@
     "fontend:test": "cd udagram-front && npm run test",
     "api:test": "cd udagram-api && npm run test",
     "api:eb": "cd udagram-api && npm run setenv"
-  }
+  },
+  "name": "nd0067-c4-deployment-process-project-starter",
+  "description": "[![CircleCI](https://circleci.com/gh/circleci/circleci-docs.svg?style=svg)](https://circleci.com/gh/udacity-hosting-fullstack/MrBomber0x001/circleci-docs)",
+  "version": "1.0.0",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MrBomber0x001/udacity-hosting-fullstack.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MrBomber0x001/udacity-hosting-fullstack/issues"
+  },
+  "homepage": "https://github.com/MrBomber0x001/udacity-hosting-fullstack#readme"
 }
