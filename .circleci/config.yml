@@ -61,7 +61,7 @@ jobs:
             # aws elasticbeanstalk create-application-version --application-name $EB_APP --version-label <<pipeline.git.revision>> --source-bundle S3Bucket="$EB_BUCKET",S3Key="Archive.zip"
             # aws elasticbeanstalk update-environment --application-name $EB_APP --environment-name $EB_ENV --version-label <<pipeline.git.revision>>
           command: |
-            npm run api:eb
+            npm run setenv
             aws elasticbeanstalk update-environment --application-name udagram-api --environment-name Udagramapi-env
           
 workflows:
@@ -72,7 +72,9 @@ workflows:
       - frontend:
         filters:
             branches:
-              only: main/master
+              only: 
+                - main
+                - master
       - server:
           filters:
             branches:
