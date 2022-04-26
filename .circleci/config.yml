@@ -68,5 +68,5 @@ workflows:
     jobs:
       # - aws-cli-example:
       #   contex: aws
-      #- frontend
+      - frontend
       - server     
